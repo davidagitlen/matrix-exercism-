@@ -13,12 +13,6 @@ export class Matrix {
   }
 
   get columns() {
-    return this.rows.reduce((acc, val, i, arr) => {
-      if (i === 0) {
-        val.forEach(number => acc.push([]))
-      }
-      val.forEach((nums, ind) => acc[ind].push(val[ind]))
-      return acc
-    }, [])
+    return this.rows[0].map((firstValue, i) => this.rows.map(value => value[i]))
   }
 }
