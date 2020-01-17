@@ -9,7 +9,11 @@ export class Matrix {
   }
 
   get rows() {
-    return this.numbers.map(nums => nums.split(' ').map(num => parseInt(num)))
+    if (!this._rows) {
+      this._rows = this.numbers
+        .map(nums => nums.split(' ').map(num => parseInt(num)));
+      }
+    return this._rows;
   }
 
   get columns() {
